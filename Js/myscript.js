@@ -26,25 +26,34 @@ console.log("Numeri del pc: "+pcNumber);
 // creo array utente
 let numeriUtente = [];
 
+// vita del giocatore
+let status = 1;
+
 // chiedo all'utente dei numeri da inserire controllando che non si ripetano e non siano uguali a quelli del pc
-while(numeriUtente.length < 4){
+while((numeriUtente.length < 6) && (status > 0)){
     let numeroUtente = parseInt(prompt("Inserisci un numero da 1 a 100"));
     if(numeroUtente>0 && numeroUtente<101){
         if(pcNumber.includes(numeroUtente) === true){
-            alert("KABOOOOOOOOOMMM")
+            alert("KABOOOOOOOOOMMM");
+            status = status - 1;
         }else if(numeriUtente.indexOf(numeroUtente) === -1){
             numeriUtente.push(numeroUtente);
         }else{
-            alert("Inserisci un numero diverso")
+            alert("Inserisci un numero diverso");
         }
     }else{
-        alert("Inserisci un numero corretto!! da 1 a 100.")
+        alert("Inserisci un numero corretto!! da 1 a 100.");
     }
-    
     i++;
 }
 
-console.log(arrayNumeri);
+if(status === 0){
+    alert("Hai perso!!! ritenta");
+}else if(numeriUtente.length == 6){
+    alert("Complimenti hai vinto!!");
+}
+
+console.log("Punteggio: "+numeriUtente.length);
 
 console.log("Numeri utente: "+numeriUtente);
 

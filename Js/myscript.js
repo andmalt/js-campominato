@@ -22,6 +22,29 @@ while(pcNumber.length < 16){
     
     i++;
 }
+console.log("Numeri del pc: "+pcNumber);
+// creo array utente
+let numeriUtente = [];
+
+// chiedo all'utente dei numeri da inserire controllando che non si ripetano e non siano uguali a quelli del pc
+while(numeriUtente.length < 4){
+    let numeroUtente = parseInt(prompt("Inserisci un numero da 1 a 100"));
+    if(numeroUtente>0 && numeroUtente<101){
+        if(pcNumber.includes(numeroUtente) === true){
+            alert("KABOOOOOOOOOMMM")
+        }else if(numeriUtente.indexOf(numeroUtente) === -1){
+            numeriUtente.push(numeroUtente);
+        }else{
+            alert("Inserisci un numero diverso")
+        }
+    }else{
+        alert("Inserisci un numero corretto!! da 1 a 100.")
+    }
+    
+    i++;
+}
 
 console.log(arrayNumeri);
-console.log("Numeri del pc: "+pcNumber);
+
+console.log("Numeri utente: "+numeriUtente);
+

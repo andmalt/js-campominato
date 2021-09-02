@@ -35,6 +35,7 @@ life = variabileProvvisoria[0];
 numberBomb = variabileProvvisoria[1];
 numberWin = variabileProvvisoria[2];
 
+document.getElementById("player-difficulty").innerHTML = difficultyLevel;
 
 // creo 16 numeri casuali diversi da inserire nell'array del pc
 let i = 0;
@@ -50,7 +51,7 @@ console.log("Numeri del pc: "+pcNumber);
 // creo array utente
 let numeriUtente = [];
 
-
+document.getElementById("player-life").innerHTML = life;
 // chiedo all'utente dei numeri da inserire controllando che non si ripetano e non siano uguali a quelli del pc
 while((numeriUtente.length < numberWin) && (life > 0)){
     let numeroUtente = parseInt(prompt("Inserisci un numero da 1 a 100"));
@@ -58,8 +59,10 @@ while((numeriUtente.length < numberWin) && (life > 0)){
         if(pcNumber.includes(numeroUtente) === true){
             alert("KABOOOOOOOOOMMM");
             life = life - 1;
+            document.getElementById("player-life").innerHTML = life;
         }else if(numeriUtente.indexOf(numeroUtente) === -1){
             numeriUtente.push(numeroUtente);
+            document.getElementById("player-number").innerHTML = numeriUtente;
         }else{
             alert("Inserisci un numero diverso");
         }
@@ -74,6 +77,9 @@ if(life === 0){
 }else if(numeriUtente.length == numberWin){
     alert("Complimenti hai vinto!!");
 }
+
+document.getElementById("player-score").innerHTML = numeriUtente.length;
+document.getElementById("pc-number").innerHTML = pcNumber;
 
 
 // funzione per il livello
